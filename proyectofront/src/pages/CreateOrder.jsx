@@ -5,6 +5,7 @@ import BuildCake from "../components/steps/BuildCake";
 import Payment from "../components/steps/TotalPayment";
 import RecipientInfo from "../components/steps/RecipientInfo";
 import OrderReview from "../components/steps/OrderReview";
+import axios from "axios";
 
 export default function CreateOrder(){
     const[step, setStep] = useState(1);
@@ -22,7 +23,7 @@ export default function CreateOrder(){
             calle:"",
             numero:"",
             colonia:"",
-            fechaEntrega:""
+            fechaEntrega:"2026-05-20"
         },
 
         pastel:{
@@ -91,10 +92,10 @@ export default function CreateOrder(){
     const handleSubmit = async() => {
         console.log(orderData)
         /*CONNECTION TO EXPRESS*/
-        // await axios.post(
-        //     "http://localhost:3000/orders",
-        //     orderData
-        // )
+        await axios.post(
+            "http://localhost:3015/pedido",
+            orderData
+        )
         alert("Pedido creado");
     }
 

@@ -1,5 +1,6 @@
 import { use, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import './SearchOrder.css'
 
 export default function SearchOrder(){
@@ -10,47 +11,21 @@ export default function SearchOrder(){
     const[error, setError] = useState("")
     const navigate = useNavigate()
 
-    const handleSearch = async() =>{
+    const handleSearch = async(e) =>{
+        e.preventDefault()
+
         setLoading(true)
         setError("")
 
         try {
             // EXPRESS CONNECTION
-            // const response = await axios.get(
-            // `http://localhost:3000/orders/search?type=${searchBy}&value=${searchText}`
-            // );
+            const response = await axios.get(
+            `http://localhost:3015/pedido/search?nombre=${searchText}`
+            );
 
-            // setOrder(response.data);
+            setResult(response.data);
+            setLoading(false)
 
-            const ejemplo ={
-                cliente:{
-                    nombre: "David Ramirez",
-                    email: "drmz12@gmail.com",
-                    telefono: "6143748593"
-                },
-                destinatario:{
-                    nombre: "Ana Garcia",
-                    calle:"Ortiz Mena",
-                    numero: "1132",
-                    colonia: "San Felipe",
-                },
-                pastel:{
-                    tamano:"mediano",
-                    pan: "vainilla",
-                    relleno: "cajeta",
-                    extras:"nuez",
-                    betun: "morado",
-                    decoracion: "estrellas"
-                },
-                pago:{
-                    metodo:"transferencia",
-                    total: 230
-                }
-            }
-            setTimeout(() =>{
-                setResult(ejemplo)
-                setLoading(false)
-            }, 1000)
         } catch (error) {
             setError("No existe un pedido con ese dato")
             setLoading(false)
@@ -67,13 +42,11 @@ export default function SearchOrder(){
         }
 
         try {
-            /*
-            INTEGRACION EXPRESS:
+            //INTEGRACION EXPRESS:
 
             await axios.delete(
-            `http://localhost:3000/orders/${id}`
+            `http://localhost:3015/pedido/${id}`
             );
-            */
 
             alert("Pedido eliminado")
             setResult(null)

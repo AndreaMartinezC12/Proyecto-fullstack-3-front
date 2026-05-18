@@ -20,8 +20,8 @@ export default function SearchOrder(){
         try {
             // EXPRESS CONNECTION
             const response = await axios.get(
-            // `http://localhost:3015/pedido/search?nombre=${searchText}`
-            `https://proyecto-fullstack-3-express.vercel.app/pedido/search?nombre=${searchText}`
+            `http://localhost:3015/pedido/search?${searchBy}=${searchText}`
+            // `https://proyecto-fullstack-3-express.vercel.app/pedido/search?nombre=${searchText}`
             );
 
             setResult(response.data);

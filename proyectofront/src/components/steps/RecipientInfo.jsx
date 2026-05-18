@@ -34,6 +34,14 @@ export default function RecipientInfo({destinatario, handleChange, nextStep, pre
                 onChange={handleChange}
             />
 
+            <input
+                type="date"
+                name="fechaEntrega"
+                placeholder="Fecha de entrega"
+                value={destinatario.fechaEntrega.split("T")[0]}
+                onChange={handleChange}
+            />
+
             <button onClick={prevStep}>
                 Atras
             </button>

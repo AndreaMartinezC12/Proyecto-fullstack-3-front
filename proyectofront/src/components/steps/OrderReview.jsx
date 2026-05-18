@@ -19,7 +19,7 @@ export default function OrderReview({orderData, prevStep, handleSubmit}){
             </button>
 
             <button onClick={handleSubmit}>
-                Crear pedido
+                Guardar pedido
             </button>
         </div>
     )

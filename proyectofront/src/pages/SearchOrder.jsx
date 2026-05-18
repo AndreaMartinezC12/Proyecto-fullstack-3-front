@@ -142,6 +142,13 @@ export default function SearchOrder(){
                     >
                         Eliminar pedido
                     </button>
+
+                    <button
+                        onClick={() => navigate(`/edit-order/${result.pedidoId}`)}
+                        className="delete-button"
+                    >
+                        Editar pedido
+                    </button>
                 </div>
             )}
         </div>

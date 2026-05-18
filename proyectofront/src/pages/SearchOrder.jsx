@@ -32,7 +32,7 @@ export default function SearchOrder(){
         }
     }
 
-    const handleDelete = async() =>{
+    const handleDelete = async(pedidoId) =>{
         const confirmDelete = window.confirm(
             "Estas seguro que deseas eliminar este pedido?"
         )
@@ -43,9 +43,11 @@ export default function SearchOrder(){
 
         try {
             //INTEGRACION EXPRESS:
+            console.log("entre al borrado")
+            console.log(pedidoId)
 
             await axios.delete(
-            `http://localhost:3015/pedido/${id}`
+            `http://localhost:3015/pedido/${pedidoId}`
             );
 
             alert("Pedido eliminado")
@@ -135,7 +137,7 @@ export default function SearchOrder(){
                         <p>Metodo de pago: {" "} {result.pago.metodo}</p>
                     </div>
                     <button
-                        onClick={handleDelete}
+                        onClick={()=>handleDelete(result.pedidoId)}
                         className="delete-button"
                     >
                         Eliminar pedido

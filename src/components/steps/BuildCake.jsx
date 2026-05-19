@@ -22,7 +22,7 @@ export default function BuildCake({pastel, handleChange, nextStep, prevStep}){
                 <option value="chocolate">Chocolate</option>
                 <option value="vainilla">Vainilla</option>
                 <option value="zanahoria">Zanahoria</option>
-                <option value="tresleches">Tres leches</option>
+                <option value="Tres leches">Tres leches</option>
             </select>
             <select
                 name="relleno"
@@ -31,7 +31,7 @@ export default function BuildCake({pastel, handleChange, nextStep, prevStep}){
             >
                 <option value="">Selecciona el tipo de relleno</option>
                 <option value="mermelada">Mermelada</option>
-                <option value="quesocrema">Queso crema</option>
+                <option value="Queso crema">Queso crema</option>
                 <option value="nutella">Nutella</option>
                 <option value="cajeta">Cajeta</option>
             </select>

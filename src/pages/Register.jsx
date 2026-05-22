@@ -30,33 +30,38 @@ export default function Register(){
     }
 
     return(
-        <form onSubmit={handleRegister}>
-            <h2>Registra tu cuenta</h2>
-            <input
-                type="text"
-                placeholder = "Nombre"
-                value = {nombre}
-                onChange={(e) => setNombre(e.target.value)}
-            />
+        <div className="login-container">
+            <form className = "login-card" onSubmit={handleRegister}>
+                <h1 className="login-title">Registra tu cuenta</h1>
+                <input
+                    type="text"
+                    placeholder = "Nombre"
+                    value = {nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                    className="login-input"
+                />
 
-            <input
-                type="email"
-                placeholder = "Email"
-                value = {email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
+                <input
+                    type="email"
+                    placeholder = "Email"
+                    value = {email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="login-input"
+                />
 
-            <input
-                type="password"
-                placeholder = "Password"
-                value = {password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
+                <input
+                    type="password"
+                    placeholder = "Password"
+                    value = {password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="login-input"
+                />
 
-            <button type="submit">Registrarse</button>
-             <button type="button" onClick={() => navigate("/")}>
-                    Regresar
-            </button>
-        </form>
+                <button type="submit" className="login-button">Registrarse</button>
+                 <button className="back-button" type="button" onClick={() => navigate("/")}>
+                        Regresar
+                </button>
+            </form>
+        </div>
     )
 }

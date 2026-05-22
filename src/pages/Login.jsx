@@ -33,14 +33,15 @@ export default function Login(){
     }
 
     return(
-    <div>
-        <h1>Login</h1>
-        <form onSubmit={handleSubmit}>
+    <div className="login-container">
+        <form className = "login-card" onSubmit={handleSubmit}>
+            <h1 className="login-title">Ingresar</h1>
             <input
                 type="email"
                 placeholder="Correo"
                 value={email}
                 onChange={(e)=> setEmail(e.target.value)}
+                className="login-input"
             />
 
             <input
@@ -48,10 +49,11 @@ export default function Login(){
                 placeholder="Contrasena"
                 value={password}
                 onChange={(e)=> setPassword(e.target.value)}
+                className="login-input"
             />
 
-            <button type="submit">Entrar</button>
-            <button onClick={() => navigate("/")}>
+            <button type="submit" className="login-button">Entrar</button>
+            <button className="back-button" onClick={() => navigate("/")}>
                     Regresar
             </button>
         </form>

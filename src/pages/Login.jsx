@@ -42,6 +42,9 @@ export default function Login(){
             />
 
             <button type="submit">Entrar</button>
+            <button onClick={() => navigate("/")}>
+                    Regresar
+            </button>
         </form>
 
         {mensaje && <p>{mensaje}</p>}

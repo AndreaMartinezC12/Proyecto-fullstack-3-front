@@ -30,6 +30,7 @@ export default function Register(){
 
     return(
         <form onSubmit={handleRegister}>
+            <h2>Registra tu cuenta</h2>
             <input
                 type="text"
                 placeholder = "Nombre"

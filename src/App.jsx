@@ -20,7 +20,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Start />} />
-          <Route path="/Home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
           <Route path="/new-order" element={<ProtectedRoute><CreateOrder /></ProtectedRoute>} />
           <Route path="/search-order" element={<AdminRoute><SearchOrder /></AdminRoute>} />
           <Route path="/edit-order/:id" element={<ProtectedRoute><EditOrder /></ProtectedRoute>} />

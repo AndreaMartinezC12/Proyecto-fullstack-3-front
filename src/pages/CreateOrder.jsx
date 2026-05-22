@@ -108,7 +108,7 @@ export default function CreateOrder(){
     return(
         <div>
             <button 
-                onClick={()=>navigate("/")}
+                onClick={()=>navigate("/mi-pedido")}
                 className="home-button"
             >
             Volver al inicio

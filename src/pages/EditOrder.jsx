@@ -80,7 +80,7 @@ export default function EditOrder(){
                 orderData
             )
             alert("Pedido actualizado")
-            navigate("/")
+            navigate("/mi-pedido")
 
         } catch (error) {
             console.log(error)
@@ -131,7 +131,7 @@ export default function EditOrder(){
     return(
         <div>
             <button 
-                onClick={()=>navigate("/")}
+                onClick={()=>navigate("/mi-pedido")}
                 className="home-button"
             >
             Volver al inicio

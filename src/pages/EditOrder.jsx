@@ -8,6 +8,7 @@ import Payment from "../components/steps/TotalPayment";
 import RecipientInfo from "../components/steps/RecipientInfo";
 import OrderReview from "../components/steps/OrderReview";
 import axios from "axios";
+import api from "../api/axios";
 
 export default function EditOrder(){
     const[step, setStep] = useState(1)
@@ -50,8 +51,8 @@ export default function EditOrder(){
 
     const getPedido = async () => {
         try {
-            const response = await axios.get(
-                `http://localhost:3015/pedido/${id}`
+            const response = await api.get(
+                `/pedido/my-pedido`
             )
         
             const data = response.data 
@@ -74,8 +75,8 @@ export default function EditOrder(){
     const handleSave = async() => {
         try {
             console.log(orderData)
-            await axios.patch(
-                `http://localhost:3015/pedido/${id}`,
+            await api.patch(
+                `/pedido/edit-pedido/${id}`,
                 orderData
             )
             alert("Pedido actualizado")

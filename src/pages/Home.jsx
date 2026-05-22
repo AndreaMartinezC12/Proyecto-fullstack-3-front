@@ -3,6 +3,13 @@ import './Home.css'
 
 export default function Home(){
     const navigate = useNavigate()
+    const user= JSON.parse(localStorage.getItem('user'))
+
+    const logout = () => {
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        navigate('/')
+    }
 
     return(
         <div className = "home-container">
@@ -16,6 +23,9 @@ export default function Home(){
                 <h4 className="hero-subtitle">Sistema para la creacion y busqueda de pedidos</h4>               
             </div>
 
+            <p>Bienvenido: {user?.nombre}</p>
+            <p>Email: {user?.email}</p>
+
             <div className="button-container">
                 <button className="home-button" onClick={() => navigate("/new-order")}>
                     Nuevo Pedido
@@ -23,7 +33,14 @@ export default function Home(){
                 <button className="home-button" onClick={() => navigate("/search-order")}>
                     Buscar Pedido
                 </button>
+                <button className="home-button" onClick={() => navigate("/mi-pedido")}>
+                    Ver mi Pedido
+                </button>
             </div>
+
+            <button onClick={logout}>
+                Cerrar sesion
+            </button>
 
             
         </div>

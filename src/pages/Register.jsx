@@ -13,7 +13,8 @@ export default function Register(){
 
         try {
             await axios.post(
-                'http://localhost:3015/auth/register',
+                // 'http://localhost:3015/auth/register',
+                'https://proyecto-fullstack-3-express.vercel.app',
                 {
                     nombre,
                     email,

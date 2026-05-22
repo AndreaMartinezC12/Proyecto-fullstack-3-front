@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:3015"
+    // baseURL: "http://localhost:3015"
+    baseURL: "https://proyecto-fullstack-3-express.vercel.app"
 })
 
 api.interceptors.request.use((config) =>{

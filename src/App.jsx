@@ -11,6 +11,7 @@ import Start from './pages/Start'
 import UserPedido from './pages/UserPedido'
 import AdminRoute from './components/AdminRoute'
 import ProtectedRoute from './components/ProtectedRoute'
+import AdminHome from './pages/AdminHome'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/mi-pedido" element={<ProtectedRoute><UserPedido /></ProtectedRoute>} />
+          <Route path="/admin-home" element={<AdminRoute><AdminHome /></AdminRoute>} />
 
 
 

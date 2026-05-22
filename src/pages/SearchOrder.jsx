@@ -74,7 +74,7 @@ export default function SearchOrder(){
     return(
         <div className = "container">
             <button 
-                onClick={()=>navigate("/")}
+                onClick={()=>navigate("/admin-home")}
                 className="home-button"
             >
             Volver al inicio
@@ -155,13 +155,6 @@ export default function SearchOrder(){
                         className="delete-button"
                     >
                         Eliminar pedido
-                    </button>
-
-                    <button
-                        onClick={() => navigate(`/edit-order/${result.pedidoId}`)}
-                        className="delete-button"
-                    >
-                        Editar pedido
                     </button>
                 </div>
             )}

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginRequest } from "../api/authApi";
+import { jwtDecode } from "jwt-decode";
+
 
 export default function Login(){
     const navigate = useNavigate()
@@ -17,7 +19,14 @@ export default function Login(){
             localStorage.setItem('token', data.token)
             localStorage.setItem('user', JSON.stringify(data.user))
 
-            navigate('/Home')
+            const decoded = jwtDecode(data.token)
+
+            if (decoded.role !== 'admin'){
+                navigate('/mi-pedido')
+            }
+            else{
+                navigate('/admin-home')
+            }
         }catch(error){
             setMensaje(error.response?.data?.error || 'Error al iniciar sesion')
         }

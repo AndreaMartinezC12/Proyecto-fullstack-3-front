@@ -2,6 +2,8 @@ import { use, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './SearchOrder.css'
+import api from "../api/axios";
+import { jwtDecode } from "jwt-decode";
 
 export default function SearchOrder(){
     const[searchBy, setSearchBy] = useState("nombre")
@@ -10,6 +12,17 @@ export default function SearchOrder(){
     const[loading, setLoading] = useState(false)
     const[error, setError] = useState("")
     const navigate = useNavigate()
+    const token = localStorage.getItem('token')
+    const decoded = jwtDecode(token)
+
+    if (decoded.role !== 'admin') {
+
+        return (
+            <h1>
+                Acceso denegado
+            </h1>
+        );
+    }
 
     const handleSearch = async(e) =>{
         e.preventDefault()
@@ -19,8 +32,8 @@ export default function SearchOrder(){
 
         try {
             // EXPRESS CONNECTION
-            const response = await axios.get(
-            `http://localhost:3015/pedido/search?${searchBy}=${searchText}`
+            const response = await api.get(
+            `/pedido/search?${searchBy}=${searchText}`
             // `https://proyecto-fullstack-3-express.vercel.app/pedido/search?nombre=${searchText}`
             );
 
@@ -47,8 +60,8 @@ export default function SearchOrder(){
             console.log("entre al borrado")
             console.log(pedidoId)
 
-            await axios.delete(
-            `http://localhost:3015/pedido/${pedidoId}`
+            await api.delete(
+            `/pedido/${pedidoId}`
             );
 
             alert("Pedido eliminado")

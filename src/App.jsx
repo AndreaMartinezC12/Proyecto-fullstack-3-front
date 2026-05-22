@@ -9,6 +9,8 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import Start from './pages/Start'
 import UserPedido from './pages/UserPedido'
+import AdminRoute from './components/AdminRoute'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
 
@@ -17,13 +19,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Start />} />
-          <Route path="/Home" element={<Home />} />
-          <Route path="/new-order" element={<CreateOrder />} />
-          <Route path="/search-order" element={<SearchOrder />} />
-          <Route path="/edit-order/:id" element={<EditOrder />} />
+          <Route path="/Home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/new-order" element={<ProtectedRoute><CreateOrder /></ProtectedRoute>} />
+          <Route path="/search-order" element={<AdminRoute><SearchOrder /></AdminRoute>} />
+          <Route path="/edit-order/:id" element={<ProtectedRoute><EditOrder /></ProtectedRoute>} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/mi-pedido" element={<UserPedido />} />
+          <Route path="/mi-pedido" element={<ProtectedRoute><UserPedido /></ProtectedRoute>} />
 
 
 
